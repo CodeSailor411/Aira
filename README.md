@@ -1,3 +1,4 @@
+![Logo](Copie%20de%20AI.png)
 # AIRA Project Documentation
 
 Welcome to the **AIRA** repository! AIRA is a mental health platform for early detection, providing a professional assistant for empathetic interactions. This project was created in the context of the **EMBS challenge of TSYP12**, showcasing innovation in mental health technology by combining sentiment analysis, contextual memory, and tailored responses.
