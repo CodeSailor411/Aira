@@ -41,19 +41,18 @@ const MentalHealthAdvisor = () => {
   // Fetch bot response from backend
   const fetchBotResponse = async (userInput) => {
     try {
-      const response = await fetch(
-        "/.netlify/functions/chatbot",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ user_input: userInput }),
-        }
-      );
+      const response = await fetch("/.netlify/functions/chatbot", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user_input: userInput }),
+      });
+
       if (!response.ok) {
         throw new Error("Server error");
       }
+
       const data = await response.json();
       return data.response; // Return the assistant's response
     } catch (error) {
