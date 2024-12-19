@@ -42,7 +42,7 @@ const MentalHealthAdvisor = () => {
   const fetchBotResponse = async (userInput) => {
     try {
       const response = await fetch(
-        "https://airaapp.netlify.app/.netlify/functions/Chatbot",
+        "/.netlify/functions/chatbot",
         {
           method: "POST",
           headers: {
