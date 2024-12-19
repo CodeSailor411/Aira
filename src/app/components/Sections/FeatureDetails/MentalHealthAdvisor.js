@@ -41,13 +41,19 @@ const MentalHealthAdvisor = () => {
   // Fetch bot response from backend
   const fetchBotResponse = async (userInput) => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ user_input: userInput }),
-      });
+      const response = await fetch(
+        "https://airaapp.netlify.app/.netlify/functions/Chatbot",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ user_input: userInput }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Server error");
+      }
       const data = await response.json();
       return data.response; // Return the assistant's response
     } catch (error) {
@@ -155,7 +161,7 @@ const MentalHealthAdvisor = () => {
           fullWidth
           value={userMessage}
           onChange={(e) => setUserMessage(e.target.value)}
-          onKeyDown={handleKeyPress}  // Listen for Enter key press
+          onKeyDown={handleKeyPress} // Listen for Enter key press
           sx={{
             borderRadius: "12px",
             backgroundColor: "#fff",

@@ -26,7 +26,7 @@ app.add_middleware(
 analyzer = SentimentIntensityAnalyzer()
 emotion_model = pipeline("text-classification", model="TheAlchemist411/AIRA", return_all_scores=True)
 
-# Initialize persistent memory for context and sentiment trends
+# Persistent memory for context and sentiment trends
 user_memory = {
     "context_history": [],
     "sentiment_trend": defaultdict(list),
@@ -43,7 +43,7 @@ async def get_chat_response(chat_request: ChatRequest):
 
     # Add user's input to the conversation history
     user_memory["conversation_history"].append({"role": "user", "content": user_input})
-    distress = 0
+
     # Sentiment and emotion analysis
     sentiment_data = analyze_sentiment(user_input)
     distress_score = calculate_distress_score(sentiment_data["emotion_scores"])
@@ -55,7 +55,7 @@ async def get_chat_response(chat_request: ChatRequest):
     response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization": f"AIRA_EMBS {api_key}",
+            "Authorization": f"Bearer {api_key}",
         },
         data=json.dumps({
             "model": "google/gemini-2.0-flash-exp:free",
