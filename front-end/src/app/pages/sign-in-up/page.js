@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation"; // Added useRouter
-import { Box, TextField, Button, Typography, Card, CardContent } from "@mui/material";
+import { CircularProgress,Box, TextField, Button, Typography, Card, CardContent } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function SignInUp() {
+function SignInUpComponent() {
   const searchParams = useSearchParams();
   const router = useRouter(); // Initialize useRouter for navigation
   const [isSignIn, setIsSignIn] = useState(true);
@@ -219,5 +219,27 @@ export default function SignInUp() {
         </Box>
       </motion.div>
     </Box>
+  );
+}
+
+export default function SignInUp() {
+  return (
+    <Suspense
+      fallback={
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100vh",
+            backgroundColor: "#1e3a8a",
+          }}
+        >
+          <CircularProgress color="secondary" />
+        </Box>
+      }
+    >
+      <SignInUpComponent />
+    </Suspense>
   );
 }
