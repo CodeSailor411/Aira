@@ -4,3 +4,4 @@ vaderSentiment
 transformers
 requests
 pydantic
+mangum
