@@ -38,23 +38,34 @@ const MentalHealthAdvisor = () => {
     }
   };
 
-  // Fetch bot response from backend
+  // Fetch bot response from the new API
   const fetchBotResponse = async (userInput) => {
     try {
-      const response = await fetch("/.netlify/functions/chatbot", {
+      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Authorization": `AIRA_EMBS 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`, // Replace with your actual API key
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify({ user_input: userInput }),
+        body: JSON.stringify({
+          "model": "google/gemini-2.0-flash-exp:free",  // Model name
+          "messages": [
+            {
+              "role": "user",
+              "content": userInput
+            }
+          ]
+        })
       });
 
       if (!response.ok) {
-        throw new Error("Server error");
+        throw new Error("Failed to fetch response from the chatbot API");
       }
 
       const data = await response.json();
-      return data.response; // Return the assistant's response
+      return data.choices && data.choices[0] && data.choices[0].message.content
+        ? data.choices[0].message.content
+        : "I'm sorry, I couldn't get a valid response.";
     } catch (error) {
       console.error("Error fetching bot response:", error);
       return "I'm sorry, I couldn't connect to the server.";
