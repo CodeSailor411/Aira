@@ -5,9 +5,7 @@ import { Box, TextField, Button, Typography, Paper } from "@mui/material";
 import { motion } from "framer-motion";
 import { FaRobot } from "react-icons/fa";
 import ReactMarkdown from "react-markdown";
-import dotenv from "dotenv";
 
-dotenv.config();
 const MentalHealthAdvisor = () => {
   const [messages, setMessages] = useState([
     { text: "Hello! How can I assist you today?", sender: "bot" },
@@ -62,7 +60,7 @@ const MentalHealthAdvisor = () => {
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": `AIRA_EMBS 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`, // Use environment variable for API key
+          "Authorization": `AIRA_EMBS ${process.env.REACT_APP_API_KEY}`, // Use environment variable for API key
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
