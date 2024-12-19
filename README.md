@@ -43,7 +43,7 @@ The front-end of the project is built using **Next.js**, a powerful React framew
 ## Technologies Used
 
 ### Front-end
-- **React**: Framework for building user interfaces.
+- **Next.JS**: Framework for building user interfaces.
 - **Material-UI**: Styling components for a modern look and feel.
 - **Framer Motion**: Animations for smooth and dynamic interactions.
 - **Other react libraries and UI kits**: For enhancing UI/UX.
