@@ -107,16 +107,45 @@ pip install -r requirements.txt
   ```
 - **Response**:
   ```json
-  {
-    "response": "Assistant-generated response here",
-    "sentiment_analysis": {
-      "vader_sentiment": "negative",
-      "dominant_emotion": "anxiety",
-      "emotion_scores": [...]
+  Sentiment Analysis: {
+  "vader_sentiment": "negative",
+  "dominant_emotion": "fear",
+  "emotion_scores": [
+    {
+      "label": "anger",
+      "score": 0.0006533358246088028
     },
-    "distress_score": 0.75,
-    "conversation_history": [...]
+    {
+      "label": "disgust",
+      "score": 0.0005526913446374238
+    },
+    {
+      "label": "fear",
+      "score": 0.9935412406921387
+    },
+    {
+      "label": "joy",
+      "score": 0.0011433031177148223
+    },
+    {
+      "label": "neutral",
+      "score": 0.0014599639689549804
+    },
+    {
+      "label": "sadness",
+      "score": 0.0015837876126170158
+    },
+    {
+      "label": "surprise",
+      "score": 0.001065543619915843
+    }
+     Distress Score: 0.6988701166323154
+     Conversation History: [
+  {
+    "user": "I feel so anxious and unsure about my future.",
+    "assistant": ""
   }
+
   ```
 
 ---
@@ -154,6 +183,13 @@ pip install -r requirements.txt
 6. Open a pull request.
 
 ---
+## Jupyter Notebooks for Development
+
+- **[Chatbot Development (LLM + NLU)](https://colab.research.google.com/drive/1yWH0Ii8aB6OPo2U1s0eompJaoNO_s28m?usp=sharing)**: This notebook allows for testing both the LLM and NLU models and integrates their functionalities.
+- **[Training NLU for Combined Use with LLM](https://colab.research.google.com/drive/1FFyJ6iCYoXKxHXBnO22YABY2CazIwYx0?usp=sharing)**: A dedicated notebook for training the NLU model, designed for combined use with the LLM model.
+
+For any questions or issues, feel free to open an issue or contact the maintainers.
+
 
 ## License
 This project is licensed under the MIT License.
