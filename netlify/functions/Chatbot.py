@@ -8,7 +8,7 @@ import requests
 import datetime
 from collections import defaultdict
 import os
-
+from mangum import Mangum  # Import Mangum to make it serverless
 
 app = FastAPI()
 api_key = os.getenv("AIRA_EMBS")
@@ -16,7 +16,7 @@ api_key = os.getenv("AIRA_EMBS")
 # Add CORS middleware to allow frontend requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Replace "*" with your frontend URL for better security, e.g., ["http://localhost:3000"]
+    allow_origins=["*"],  # Replace "*" with your frontend URL for better security
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers
@@ -99,11 +99,9 @@ def calculate_distress_score(emotion_scores):
         "disgust": 0.1
     }
     raw_score = sum(weights.get(emotion["label"], 0) * emotion["score"] for emotion in emotion_scores)
-  # Normalize between 0 and 1
     return max(0, min(1, raw_score))
 
 def create_context(sentiment_data, distress_score):
-    # Dynamic context creation based on sentiment and distress score
     return (
         f"You are AIRA, a professional empathetic mental health assistant. You read and understand the emotions of the user. "
         f"You retain memory of past conversations. The user feels {sentiment_data['vader_sentiment']} "
@@ -123,6 +121,9 @@ def create_context(sentiment_data, distress_score):
         "Please only ask these questions and wait for the user's response before proceeding to the next question."
         "After that, you can assess the mental health of the user based on the answers to the questions and provide the necessary support."
         "If you feel the user is severely mentally damaged, recommend them to consult a mental health professional immediately."
-        # This is a mock-up version as we haven't integrated real data from wearable devices yet.
         "You also have access to the user's heart rate data from the dashboard of the website giving random realistic data. "
-        "Additionally, you have access to the sleep tracking data of the user from the dashboard of the website, where you notice they only sleep between 1 to 6 hours the entire week, indicating poor sleep quality.")
+        "Additionally, you have access to the sleep tracking data of the user from the dashboard of the website, where you notice they only sleep between 1 to 6 hours the entire week, indicating poor sleep quality."
+    )
+
+# Handler for AWS Lambda to work with FastAPI
+handler = Mangum(app)
