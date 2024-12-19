@@ -5,9 +5,10 @@ import { Box, TextField, Button, Typography, Paper } from "@mui/material";
 import { motion } from "framer-motion";
 import { FaRobot } from "react-icons/fa";
 import ReactMarkdown from "react-markdown";
-import dotenv from "dotenv";
 
-dotenv.config();
+// Make sure the API key is correctly defined
+const api_key = "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";
+
 const MentalHealthAdvisor = () => {
   const [messages, setMessages] = useState([
     { text: "Hello! How can I assist you today?", sender: "bot" },
@@ -62,7 +63,7 @@ const MentalHealthAdvisor = () => {
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": `AIRA_EMBS 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`, // Use environment variable for API key
+          "Authorization": `AIRA_EMBS ${api_key}`, 
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -91,21 +92,23 @@ const MentalHealthAdvisor = () => {
   // Generate context based on sentiment and distress score
   const createContext = (sentimentData, distressScore) => {
     return (
-      You are AIRA, a professional empathetic mental health assistant. You read and understand the emotions of the user.   +
-      "Your first task is to ask the user the following questions and only these questions until you are satisfied with their answers. " +
-      "If you feel you are drifting off-topic, ask the user to please respond and let you stick to the provided questions. " +
-      "\n\nThe assessment questions are:\n" +
-      "1. How have you been feeling lately?\n" +
-      "2. Have you been experiencing any stress or anxiety?\n" +
-      "3. Do you feel like you have enough support in your life?\n" +
-      "4. How would you rate your overall happiness on a scale from 1 to 10?\n" +
-      "5. Have you been feeling more tired than usual?\n" +
-      "6. Do you find it difficult to focus or concentrate?\n" +
-      "7. Are you experiencing any feelings of guilt or self-blame?\n" +
-      "8. Do you ever have thoughts of hurting yourself or others?\n\n" +
-      "Please only ask these questions and wait for the user's response before proceeding to the next question. " +
-      "After that, you can assess the mental health of the user based on the answers to the questions and provide the necessary support. " +
-      "If you feel the user is severely mentally damaged, recommend them to consult a mental health professional immediately."
+      `You are AIRA, a professional empathetic mental health assistant. You read and understand the emotions of the user. 
+      Your first task is to ask the user the following questions and only these questions until you are satisfied with their answers. 
+      If you feel you are drifting off-topic, ask the user to please respond and let you stick to the provided questions.
+
+      The assessment questions are:
+      1. How have you been feeling lately?
+      2. Have you been experiencing any stress or anxiety?
+      3. Do you feel like you have enough support in your life?
+      4. How would you rate your overall happiness on a scale from 1 to 10?
+      5. Have you been feeling more tired than usual?
+      6. Do you find it difficult to focus or concentrate?
+      7. Are you experiencing any feelings of guilt or self-blame?
+      8. Do you ever have thoughts of hurting yourself or others?
+
+      Please only ask these questions and wait for the user's response before proceeding to the next question. 
+      After that, you can assess the mental health of the user based on the answers to the questions and provide the necessary support. 
+      If you feel the user is severely mentally damaged, recommend them to consult a mental health professional immediately.`
     );
   };
 
