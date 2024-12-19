@@ -5,56 +5,69 @@ import { Box, TextField, Button, Typography, Paper } from "@mui/material";
 import { motion } from "framer-motion";
 import { FaRobot } from "react-icons/fa";
 import ReactMarkdown from "react-markdown";
+import dotenv from "dotenv";
 
+dotenv.config();
 const MentalHealthAdvisor = () => {
   const [messages, setMessages] = useState([
     { text: "Hello! How can I assist you today?", sender: "bot" },
   ]);
   const [userMessage, setUserMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [conversationHistory, setConversationHistory] = useState([]);  // Store conversation history
 
   // Function to handle sending a message
   const sendMessage = async () => {
     if (userMessage.trim()) {
-      // Add user's message to the chat
+      // Add user's message to the chat and conversation history
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: userMessage, sender: "user" },
       ]);
+      const updatedHistory = [
+        ...conversationHistory,
+        { role: "user", content: userMessage },
+      ];
+      setConversationHistory(updatedHistory);
 
       // Clear the input field immediately after adding the message
       setUserMessage("");
 
       // Call backend to get bot response
       setLoading(true);
-      const botResponse = await fetchBotResponse(userMessage);
+      const botResponse = await fetchBotResponse(userMessage, updatedHistory);
       setLoading(false);
 
-      // Add bot's response to the chat
+      // Add bot's response to the chat and conversation history
       setMessages((prevMessages) => [
         ...prevMessages,
-        { text: botResponse, sender: "bot" },
+        { text: botResponse.response, sender: "bot" },
+      ]);
+      setConversationHistory((prevHistory) => [
+        ...prevHistory,
+        { role: "assistant", content: botResponse.response },
       ]);
     }
   };
 
   // Fetch bot response from the new API
-  const fetchBotResponse = async (userInput) => {
+  const fetchBotResponse = async (userInput, conversationHistory) => {
     try {
+      // Example sentiment and distress score for context generation (replace with actual logic)
+      const sentimentData = { vader_sentiment: "neutral", dominant_emotion: "calm" };
+      const distressScore = 2.5;  // Example distress score
+
+      const context = createContext(sentimentData, distressScore);
+
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": `AIRA_EMBS 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`, // Replace with your actual API key
+          "Authorization": `AIRA_EMBS ${process.env.REACT_APP_API_KEY}`, // Use environment variable for API key
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          "model": "google/gemini-2.0-flash-exp:free",  // Model name
-          "messages": [
-            {
-              "role": "user",
-              "content": userInput
-            }
-          ]
+          model: "google/gemini-2.0-flash-exp:free",
+          messages: [{ role: "system", content: context }, ...conversationHistory]
         })
       });
 
@@ -63,13 +76,37 @@ const MentalHealthAdvisor = () => {
       }
 
       const data = await response.json();
-      return data.choices && data.choices[0] && data.choices[0].message.content
-        ? data.choices[0].message.content
-        : "I'm sorry, I couldn't get a valid response.";
+      const assistantResponse = data.choices?.[0]?.message?.content || "I'm sorry, I couldn't get a valid response.";
+
+      return {
+        response: assistantResponse,
+        conversation_history: data.conversation_history || []
+      };
     } catch (error) {
       console.error("Error fetching bot response:", error);
-      return "I'm sorry, I couldn't connect to the server.";
+      return { response: "I'm sorry, I couldn't connect to the server." };
     }
+  };
+
+  // Generate context based on sentiment and distress score
+  const createContext = (sentimentData, distressScore) => {
+    return (
+      `You are AIRA, a professional empathetic mental health assistant. You read and understand the emotions of the user. `  +
+      "Your first task is to ask the user the following questions and only these questions until you are satisfied with their answers. " +
+      "If you feel you are drifting off-topic, ask the user to please respond and let you stick to the provided questions. " +
+      "\n\nThe assessment questions are:\n" +
+      "1. How have you been feeling lately?\n" +
+      "2. Have you been experiencing any stress or anxiety?\n" +
+      "3. Do you feel like you have enough support in your life?\n" +
+      "4. How would you rate your overall happiness on a scale from 1 to 10?\n" +
+      "5. Have you been feeling more tired than usual?\n" +
+      "6. Do you find it difficult to focus or concentrate?\n" +
+      "7. Are you experiencing any feelings of guilt or self-blame?\n" +
+      "8. Do you ever have thoughts of hurting yourself or others?\n\n" +
+      "Please only ask these questions and wait for the user's response before proceeding to the next question. " +
+      "After that, you can assess the mental health of the user based on the answers to the questions and provide the necessary support. " +
+      "If you feel the user is severely mentally damaged, recommend them to consult a mental health professional immediately."
+    );
   };
 
   // Handle Enter key press to send message
@@ -141,9 +178,7 @@ const MentalHealthAdvisor = () => {
             }}
           >
             <Box sx={{ display: "flex", alignItems: "center", marginRight: "8px" }}>
-              {message.sender === "bot" && (
-                <FaRobot size={30} color="#1ae5be" />
-              )}
+              {message.sender === "bot" && <FaRobot size={30} color="#1ae5be" />}
             </Box>
             <Paper
               sx={{
@@ -170,26 +205,19 @@ const MentalHealthAdvisor = () => {
           variant="outlined"
           fullWidth
           value={userMessage}
-          onChange={(e) => setUserMessage(e.target.value)}
+          onChange={(e) => setUserMessage(e.target.value)}  // Set the user message
           onKeyDown={handleKeyPress} // Listen for Enter key press
           sx={{
             borderRadius: "12px",
             backgroundColor: "#fff",
           }}
         />
-        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+        <motion.div whileTap={{ scale: 0.95 }}>
           <Button
             variant="contained"
+            color="primary"
+            sx={{ height: "100%" }}
             onClick={sendMessage}
-            sx={{
-              backgroundColor: "#1ae5be",
-              color: "#fff",
-              borderRadius: "12px",
-              padding: "12px 16px",
-              "&:hover": {
-                backgroundColor: "#0e8e77",
-              },
-            }}
           >
             Send
           </Button>
