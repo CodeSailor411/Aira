@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+vaderSentiment
+transformers
+requests
+pydantic
+mangum
