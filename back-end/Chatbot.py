@@ -55,7 +55,7 @@ async def get_chat_response(chat_request: ChatRequest):
     response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization": f"AIRA_EMBS {api_key}",
+            "Authorization": f"AIRA_EMBS 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",
         },
         data=json.dumps({
             "model": "google/gemini-2.0-flash-exp:free",

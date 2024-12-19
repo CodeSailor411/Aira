@@ -1,0 +1,96 @@
+text,anger,disgust,fear,joy,neutral,sadness
+"I am so angry right now!",0.9,0.05,0.02,0.02,0.01,0.02
+"That movie was disgusting!",0.1,0.8,0.05,0.02,0.01,0.02
+"I'm terrified of what could happen!",0.05,0.02,0.95,0.01,0.02,0.01
+"I feel so happy today!",0.01,0.02,0.03,0.93,0.01,0.02
+"Everything feels so neutral, no strong feelings.",0.02,0.01,0.02,0.02,0.92,0.02
+"I'm feeling so down today.",0.02,0.02,0.05,0.01,0.01,0.9
+"I'm furious with my friend!",0.95,0.02,0.01,0.01,0.01,0.02
+"That taste was horrible, I can't even describe it.",0.02,0.88,0.03,0.01,0.01,0.02
+"Nothing scares me more than spiders.",0.02,0.02,0.97,0.01,0.01,0.02
+"Today is a wonderful day, I feel amazing!",0.01,0.01,0.02,0.97,0.01,0.02
+"I'm just feeling empty, like nothing matters.",0.01,0.01,0.02,0.02,0.91,0.03
+"Why is everyone so annoying?",0.93,0.04,0.01,0.01,0.01,0.01
+"That smell is disgusting, I can't breathe.",0.03,0.85,0.04,0.01,0.02,0.04
+"I'm shaking in fear, I can't control myself.",0.01,0.01,0.98,0.01,0.02,0.02
+"Life is great, I'm loving every minute of it!",0.01,0.01,0.02,0.96,0.01,0.02
+"I'm completely indifferent, it doesn't matter.",0.02,0.01,0.02,0.01,0.92,0.03
+"I'm heartbroken, I can't stop crying.",0.02,0.01,0.05,0.01,0.01,0.91
+"I can't stand this situation anymore.",0.92,0.04,0.02,0.01,0.01,0.01
+"Everything feels just fine, nothing special.",0.01,0.02,0.03,0.01,0.91,0.03
+"There's so much uncertainty ahead, I'm scared.",0.03,0.01,0.95,0.01,0.02,0.01
+"I'm so excited about the future!",0.01,0.02,0.01,0.95,0.01,0.02
+"The tension is unbearable, I'm on edge.",0.06,0.02,0.92,0.01,0.02,0.01
+"Everything is so boring, I can't stand it.",0.02,0.01,0.02,0.01,0.94,0.01
+"Today was a great day, I'm on top of the world!",0.01,0.01,0.01,0.97,0.01,0.01
+"I can't believe this is happening, I feel lost.",0.02,0.01,0.04,0.01,0.02,0.91
+"I have no words for this, I'm in shock.",0.03,0.02,0.94,0.01,0.02,0.02
+"There's a sense of dread, I can't shake it off.",0.02,0.01,0.96,0.01,0.02,0.02
+"Everything is so peaceful and calm.",0.01,0.01,0.01,0.92,0.02,0.01
+"I'm so happy to be here, it's amazing!",0.01,0.02,0.02,0.94,0.01,0.02
+"I feel so lonely, no one understands me.",0.02,0.01,0.02,0.01,0.02,0.92
+"This is the happiest I've ever been!",0.01,0.01,0.02,0.96,0.01,0.02
+"I'm stressed out, I can't think clearly.",0.03,0.02,0.91,0.01,0.02,0.01
+"That was the most terrifying thing ever.",0.01,0.01,0.98,0.01,0.02,0.02
+"Everything seems so normal, nothing changes.",0.02,0.01,0.02,0.02,0.92,0.02
+"I'm feeling hopeless, like nothing will get better.",0.02,0.01,0.04,0.01,0.02,0.91
+"All I feel is disgust, I can't stand it.",0.02,0.85,0.03,0.01,0.02,0.03
+"Everything is exciting, I'm full of energy!",0.01,0.01,0.01,0.95,0.01,0.02
+"I'm feeling frustrated, everything is going wrong.",0.93,0.03,0.02,0.01,0.01,0.01
+"I can't believe she did that to me!",0.94,0.02,0.01,0.01,0.01,0.01
+"Ugh, that was disgusting!",0.02,0.88,0.04,0.01,0.02,0.03
+"I'm terrified of the upcoming exam.",0.02,0.02,0.97,0.01,0.02,0.01
+"Everything is so great today!",0.01,0.02,0.02,0.94,0.01,0.02
+"I feel numb, nothing excites me.",0.01,0.01,0.02,0.02,0.91,0.03
+"Why is everyone always so rude?",0.93,0.03,0.02,0.01,0.01,0.01
+"That meal was awful, I couldn't eat it.",0.02,0.85,0.03,0.01,0.02,0.04
+"I can't shake off the fear, it's overwhelming.",0.01,0.02,0.96,0.01,0.02,0.01
+"I'm so excited for the weekend!",0.01,0.01,0.02,0.95,0.01,0.02
+"I can't believe how peaceful everything is.",0.01,0.01,0.02,0.92,0.02,0.02
+"I'm in such a dark place, I don't know what to do.",0.02,0.01,0.05,0.01,0.01,0.91
+"That makes me so furious!",0.94,0.02,0.01,0.01,0.01,0.02
+"The food tasted horrible, I want to vomit.",0.01,0.87,0.03,0.01,0.02,0.05
+"I can't stop shaking, I'm so scared.",0.02,0.01,0.96,0.01,0.02,0.02
+"I'm feeling so joyful today!",0.01,0.01,0.02,0.96,0.01,0.02
+"I'm so indifferent to everything right now.",0.02,0.01,0.02,0.02,0.92,0.03
+"I'm emotionally exhausted, I just want to cry.",0.02,0.01,0.04,0.01,0.01,0.92
+"That was the most frustrating experience ever.",0.92,0.04,0.02,0.01,0.01,0.01
+"Nothing really matters, I don't feel anything.",0.02,0.01,0.02,0.01,0.91,0.04
+"I'm so happy, everything is going perfectly!",0.01,0.01,0.02,0.96,0.01,0.02
+"I'm so anxious, I can't think straight.",0.03,0.02,0.91,0.01,0.02,0.02
+"I can't get rid of this dreadful feeling.",0.02,0.02,0.94,0.01,0.02,0.02
+"I'm feeling so grateful for everything.",0.01,0.01,0.02,0.94,0.01,0.02
+"Life is just neutral, nothing special.",0.02,0.01,0.02,0.01,0.92,0.02
+"I'm devastated, nothing is the same anymore.",0.02,0.01,0.04,0.01,0.01,0.92
+"I feel a rush of excitement, it's incredible!",0.01,0.01,0.02,0.95,0.01,0.02
+"That was absolutely horrifying, I can't handle it.",0.01,0.01,0.98,0.01,0.02,0.02
+"I'm so happy with the way things are going.",0.01,0.01,0.01,0.96,0.01,0.02
+"I can't seem to get over the shock of it.",0.02,0.02,0.95,0.01,0.02,0.02
+"Everything feels uncertain and I am nervous.",0.02,0.01,0.94,0.01,0.02,0.02
+"I'm overwhelmed with joy, I can't contain it.",0.01,0.01,0.02,0.97,0.01,0.02
+"There's nothing that excites me anymore.",0.02,0.01,0.02,0.02,0.91,0.03
+"I'm so disgusted, I can't even look at it.",0.02,0.86,0.03,0.01,0.02,0.05
+"I feel like I'm walking on clouds today!",0.01,0.02,0.01,0.95,0.01,0.02
+"I can't stop crying, everything feels hopeless.",0.02,0.01,0.03,0.01,0.01,0.92
+"I'm just so tired of everything, it's draining.",0.02,0.01,0.02,0.01,0.92,0.03
+"Everything is just perfect, I feel on top of the world!",0.01,0.01,0.01,0.96,0.01,0.02
+"That situation made me so mad!",0.94,0.03,0.01,0.01,0.01,0.01
+"That smell was unbearable, I had to leave.",0.01,0.89,0.03,0.01,0.02,0.03
+"I can't believe how scared I am right now.",0.02,0.01,0.96,0.01,0.02,0.02
+"I'm so full of joy, I feel like dancing!",0.01,0.01,0.02,0.94,0.01,0.02
+"There's so much uncertainty ahead, I'm feeling lost.",0.02,0.02,0.95,0.01,0.02,0.02
+"I'm just overwhelmed with happiness today!",0.01,0.01,0.02,0.96,0.01,0.02
+"I'm not sure how to feel about this, it's confusing.",0.02,0.01,0.02,0.01,0.92,0.03
+"I'm so drained, I can't keep going.",0.02,0.01,0.04,0.01,0.01,0.91
+"I'm so happy, it's like a dream come true!",0.01,0.01,0.01,0.96,0.01,0.02
+"Nothing seems to faze me, I'm so indifferent.",0.02,0.01,0.02,0.01,0.92,0.03
+"I'm terrified of the unknown.",0.03,0.01,0.95,0.01,0.02,0.01
+"I feel so energized, it's an amazing day!",0.01,0.01,0.02,0.94,0.01,0.02
+"I can't stop feeling sad about it.",0.02,0.01,0.03,0.01,0.02,0.92
+"I'm just feeling so drained, nothing excites me anymore.",0.02,0.01,0.02,0.01,0.92,0.03
+"Everything feels so amazing, I can't stop smiling!",0.01,0.01,0.01,0.96,0.01,0.02
+"I can't handle the tension, it's unbearable.",0.02,0.01,0.94,0.01,0.02,0.02
+"Nothing seems to make me feel better.",0.02,0.01,0.02,0.01,0.92,0.03
+"I'm feeling so joyful, it's contagious!",0.01,0.01,0.02,0.95,0.01,0.02
+"I can't stop crying, I feel so hopeless.",0.02,0.01,0.04,0.01,0.02,0.91
+
