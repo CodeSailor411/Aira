@@ -183,6 +183,13 @@ pip install -r requirements.txt
 6. Open a pull request.
 
 ---
+## Jupyter Notebooks for Development
+
+- **[Chatbot Development (LLM + NLU)](https://colab.research.google.com/drive/1yWH0Ii8aB6OPo2U1s0eompJaoNO_s28m?usp=sharing)**: This notebook allows for testing both the LLM and NLU models and integrates their functionalities.
+- **[Training NLU for Combined Use with LLM](https://colab.research.google.com/drive/1FFyJ6iCYoXKxHXBnO22YABY2CazIwYx0?usp=sharing)**: A dedicated notebook for training the NLU model, designed for combined use with the LLM model.
+
+For any questions or issues, feel free to open an issue or contact the maintainers.
+
 
 ## License
 This project is licensed under the MIT License.
