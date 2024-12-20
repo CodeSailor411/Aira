@@ -1,3 +1,4 @@
+![Logo](Copie%20de%20AI.png)
 # AIRA Project Documentation
 
 Welcome to the **AIRA** repository! AIRA is a mental health platform for early detection, providing a professional assistant for empathetic interactions. This project was created in the context of the **EMBS challenge of TSYP12**, showcasing innovation in mental health technology by combining sentiment analysis, contextual memory, and tailored responses.
@@ -57,7 +58,8 @@ The front-end of the project is built using **Next.js**, a powerful React framew
 - **CORS Middleware**: Enables secure communication between front-end and back-end.
 
 ---
-
+## Basic Model
+Before training, the base model used for text classification was **BERT (bert_uncased)**. This model was used for basic classification tasks to categorize sentiment and emotion in text before using the AIRA model for advanced emotion detection.
 ## Key Features
 
 ### Front-end
